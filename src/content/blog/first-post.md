@@ -4,6 +4,7 @@ description: "An academic blog post about the current challenges and possible so
 pubDate: "2025-04-18"
 author: "Ferglx"
 layout: "../../layouts/BlogLayout.astro"
+heroImage: '/blog-placeholder-3.jpg'
 ---
 
 ## Objectives
