@@ -526,14 +526,28 @@ import Layout from "../layouts/Layout.astro";
       const sections = document.querySelectorAll(".blog-section");
       const tocLinks = document.querySelectorAll(".toc-link");
 
+      const smoothScroll = (targetElement: HTMLElement | null) => {
+        if (targetElement) {
+          const headerHeight = 64; /* Altura del header en px */
+          window.scrollTo({
+            top:
+              targetElement.offsetTop -
+              headerHeight -
+              20 /* 20px extra de margen */,
+            behavior: "smooth",
+          });
+        }
+      };
+
       // Función para determinar qué sección está en el viewport
       const activateCurrentSection = () => {
         // Obtener la posición de desplazamiento actual
         const scrollY = window.scrollY;
+        const headerOffset = 64; // AÑADE ESTA CONSTANTE AQUÍ
 
         // Encontrar la sección actual
         sections.forEach((section) => {
-          const sectionTop = (section as HTMLElement).offsetTop - 100; // Ajuste para el encabezado
+          const sectionTop = (section as HTMLElement).offsetTop - headerOffset - 20; // MODIFICA ESTA LÍNEA
           const sectionHeight = (section as HTMLElement).offsetHeight;
           const sectionId = section.getAttribute("id");
 
@@ -559,14 +573,11 @@ import Layout from "../layouts/Layout.astro";
         link.addEventListener("click", (e) => {
           e.preventDefault();
           const targetId = link.getAttribute("href");
-          const targetElement = document.querySelector(String(targetId));
+          const targetElement = document.querySelector(
+            String(targetId),
+          ) as HTMLElement | null;
 
-          if (targetElement) {
-            window.scrollTo({
-              top: (targetElement as HTMLElement).offsetTop - 80,
-              behavior: "smooth",
-            });
-          }
+          smoothScroll(targetElement);
         });
       });
 
@@ -585,6 +596,7 @@ import Layout from "../layouts/Layout.astro";
     display: flex;
     gap: 2rem;
     max-width: 1200px;
+    padding-top: 4rem;
   }
 
   .blog-content {
@@ -600,11 +612,12 @@ import Layout from "../layouts/Layout.astro";
     .toc-container {
       display: block;
       position: sticky;
-      top: 2rem;
+      top: 4.5rem;
       height: fit-content;
       width: 220px;
       flex-shrink: 0;
       align-self: flex-start;
+      z-index: 40;
     }
 
     .toc {
