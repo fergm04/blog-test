@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #457b9d;
+	--accent-dark: #1d3557;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
