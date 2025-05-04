@@ -2,13 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout pageTitle="Recursos sobre Adicciones - Oaxaca" activePage="recursos">
+<Layout pageTitle="Resources on Addictions - Oaxaca" activePage="recursos">
   <main class="recursos-main">
     <div class="recursos-header">
-      <h1>Recursos</h1>
+      <h1>Resources</h1>
       <p class="subtitle">
-        Herramientas, guías y materiales sobre prevención y tratamiento de
-        adicciones
+        Tools, guides and materials on prevention and treatment of addictions
       </p>
     </div>
 
@@ -19,29 +18,36 @@ import Layout from "../layouts/Layout.astro";
           <div class="recurso-card">
             <h3>Centros de Integración Juvenil (CIJ)</h3>
             <p>
-              <strong>Dirección:</strong> Calle Violetas 401, Col. Reforma, Oaxaca
-              de Juárez
+              <strong>Dirección:</strong> Paraje el Tule, San Bartolo Coyoyepec,
+              71256 San Bartolo Coyotepec, Oaxaca
             </p>
-            <p><strong>Teléfono:</strong> (951) 516-2130</p>
             <p>
-              <strong>Servicios:</strong> Prevención, tratamiento, rehabilitación y
-              orientación familiar
+              <strong>Teléfonos:</strong> (951) 143 1537 --- (951) 551 04 06
             </p>
-            <a href="#" class="recurso-link">Más información</a>
+            <p>
+              <strong>Servicios:</strong> Prevención y tratamiento
+            </p>
+            <a href="https://www.facebook.com/cijoaxaca/" class="recurso-link"
+              >Más información</a
+            >
           </div>
 
           <div class="recurso-card">
             <h3>Centro de Atención Primaria en Adicciones (CAPA)</h3>
             <p>
-              <strong>Dirección:</strong> Av. Universidad S/N, Col. Cinco Señores,
-              Oaxaca
+              <strong>Dirección:</strong> Av. Los Higos s/n, Col. Trinidad de Viguera,
+              68080, Viguera, Oaxaca.
             </p>
-            <p><strong>Teléfono:</strong> (951) 501-9800</p>
+            <p><strong>Teléfono:</strong> (951) 520 45 01</p>
             <p>
-              <strong>Servicios:</strong> Detección temprana, consejería, terapia individual
-              y grupal
+              <strong>Servicios:</strong> Intervención y detección temprana, consulta
+              psicológica, atención médica, consejería individual, consejería familiar,
+              entre otros
             </p>
-            <a href="#" class="recurso-link">Más información</a>
+            <a
+              href="https://www.facebook.com/CECOSAMAViguera"
+              class="recurso-link">Más información</a
+            >
           </div>
         </div>
       </section>
@@ -148,23 +154,13 @@ import Layout from "../layouts/Layout.astro";
       </section>
 
       <section class="recursos-section">
-        <h2>Líneas de Ayuda</h2>
+        <h2>Línea de Ayuda</h2>
         <div class="lineas-ayuda">
           <div class="linea-card">
-            <h3>Línea de Emergencia en Adicciones</h3>
-            <p class="telefono"><strong>(951) 123-4567</strong></p>
+            <h3>Salud Mental y Adicciones</h3>
+            <p class="telefono"><strong>01 800 911 2000</strong></p>
             <p>
-              Atención 24/7 para situaciones de crisis relacionadas con
-              adicciones.
-            </p>
-          </div>
-
-          <div class="linea-card">
-            <h3>Orientación y Prevención</h3>
-            <p class="telefono"><strong>(951) 765-4321</strong></p>
-            <p>
-              Información y orientación sobre servicios de prevención y
-              tratamiento.
+              Atención para situaciones de crisis relacionadas con adicciones.
             </p>
           </div>
         </div>
@@ -186,7 +182,11 @@ import Layout from "../layouts/Layout.astro";
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem 0;
-    background: linear-gradient(to right, rgba(var(--black), 0.05), rgba(var(--black), 0.02));
+    background: linear-gradient(
+      to right,
+      rgba(var(--black), 0.05),
+      rgba(var(--black), 0.02)
+    );
     border-radius: 12px;
   }
 
@@ -227,7 +227,9 @@ import Layout from "../layouts/Layout.astro";
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .recurso-card:hover {
@@ -364,21 +366,21 @@ import Layout from "../layouts/Layout.astro";
     .recursos-header h1 {
       font-size: 2.8rem;
     }
-    
+
     .recursos-header .subtitle {
       font-size: 1.2rem;
     }
-    
+
     .recursos-cards,
     .recursos-documentos,
     .lineas-ayuda {
       grid-template-columns: 1fr;
     }
-    
+
     .documento-card {
       flex-direction: column;
     }
-    
+
     .documento-icon {
       margin-bottom: 1rem;
     }
