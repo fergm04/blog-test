@@ -2,7 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout pageTitle="Addiction: A Challenge for Oaxacan Society" activePage="blog">
+<Layout
+  pageTitle="Addiction: A Challenge for Oaxacan Society"
+  activePage="blog"
+>
   <main class="blog-main">
     <div class="toc-container">
       <div class="toc">
@@ -547,7 +550,8 @@ import Layout from "../layouts/Layout.astro";
 
         // Encontrar la sección actual
         sections.forEach((section) => {
-          const sectionTop = (section as HTMLElement).offsetTop - headerOffset - 20; // MODIFICA ESTA LÍNEA
+          const sectionTop =
+            (section as HTMLElement).offsetTop - headerOffset - 20; // MODIFICA ESTA LÍNEA
           const sectionHeight = (section as HTMLElement).offsetHeight;
           const sectionId = section.getAttribute("id");
 
@@ -592,16 +596,19 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   .blog-main {
+    /* Esta es la regla del contenedor FLEX principal */
     position: relative;
     display: flex;
     gap: 2rem;
-    max-width: 1200px;
-    padding-top: 4rem;
+    width: 100%;
+    /* -------> MODIFICA ESTA LÍNEA <------- */
+    max-width: 1300px; /* O el valor que prefieras, ej: 1300px, 1500px */
+    margin: 0 auto;
+    padding: 2rem 1rem;
   }
 
-  .blog-content {
-    flex: 1;
-    max-width: 900px;
+  .blog-content { /* O déjalo sin max-width para que ocupe el espacio disponible */
+    width: 100%; /* Asegura que use el espacio asignado por flexbox */
   }
 
   .toc-container {
@@ -666,13 +673,6 @@ import Layout from "../layouts/Layout.astro";
       font-weight: bold;
       background-color: rgba(var(--gray-light), 0.3);
     }
-  }
-
-  .blog-main {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
   }
 
   .blog-header {
