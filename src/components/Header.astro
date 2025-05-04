@@ -17,7 +17,7 @@ import { SITE_TITLE } from "../consts";
 						<img
 							src="/tec.png"
 							alt="Logo Escuela"
-							class="h-auto max-h-[55px] w-auto object-contain"
+							class="h-13 max-h-13 w-auto object-contain"
 						/>
 					</a>
 				</h2>
@@ -27,21 +27,20 @@ import { SITE_TITLE } from "../consts";
 			<div class="md:hidden">
 				<button
 					id="menu-toggle"
-					class="text-gray-700 dark:text-gray-200 hover:text-blue-600 focus:outline-none"
+					class="text-gray-700 dark:text-gray-200 hover:text-blue-600 focus:outline-none transition duration-300"
+					aria-label="Menú"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 6h16M4 12h16M4 18h16"></path>
-					</svg>
+					<div class="hamburger-icon w-6 h-6 relative">
+						<span
+							class="hamburger-line top-0 absolute w-6 h-0.5 bg-current transform transition-all duration-300"
+						></span>
+						<span
+							class="hamburger-line mt-2 absolute w-6 h-0.5 bg-current transform transition-all duration-300"
+						></span>
+						<span
+							class="hamburger-line mt-4 absolute w-6 h-0.5 bg-current transform transition-all duration-300"
+						></span>
+					</div>
 				</button>
 			</div>
 
@@ -71,22 +70,25 @@ import { SITE_TITLE } from "../consts";
 			</div>
 		</nav>
 
-		<!-- Menú móvil expandible -->
-		<div id="mobile-menu" class="md:hidden hidden py-2 pb-4">
-			<div class="flex flex-col space-y-2">
+		<!-- Menú móvil expandible con animación -->
+		<div
+			id="mobile-menu"
+			class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+		>
+			<div class="flex flex-col space-y-2 py-2 pb-4">
 				<HeaderLink
 					href="/"
-					class="text-white px-4 py-2 rounded hover:bg-gray-100 bg-[rgb(208,219,255)]-800"
+					class="text-gray-800 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
 					>Home</HeaderLink
 				>
 				<HeaderLink
 					href="/blog"
-					class="text-white px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-[rgb(208,219,255)]-800"
+					class="text-gray-800 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
 					>Blog</HeaderLink
 				>
 				<HeaderLink
 					href="/resources"
-					class="text-white px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-[rgb(208,219,255)]-800"
+					class="text-gray-800 dark:text-gray-200 px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-200"
 					>Resources</HeaderLink
 				>
 
@@ -94,7 +96,7 @@ import { SITE_TITLE } from "../consts";
 					<a
 						href="https://github.com/fergm04/blog-test"
 						target="_blank"
-						class="text-gray-600 dark:text-gray-300 hover:text-blue-600"
+						class="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition duration-200"
 					>
 						<span class="sr-only">Go to Astro's GitHub repo</span>
 						<svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24">
@@ -120,17 +122,40 @@ import { SITE_TITLE } from "../consts";
 	:global(.content-container) {
 		padding-top: 4rem;
 	}
+
+	/* Estilos para el icono de hamburguesa */
+	.hamburger-icon.active .hamburger-line:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+
+	.hamburger-icon.active .hamburger-line:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger-icon.active .hamburger-line:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+
+	/* Clase para el menú abierto */
+	#mobile-menu.expanded {
+		max-height: 300px; /* Altura máxima cuando está expandido */
+	}
 </style>
 
 <script>
-	// Funcionalidad del menú hamburguesa
+	// Funcionalidad del menú hamburguesa con animación
 	document.addEventListener("DOMContentLoaded", () => {
 		const menuToggle = document.getElementById("menu-toggle");
 		const mobileMenu = document.getElementById("mobile-menu");
+		const hamburgerIcon = menuToggle?.querySelector(".hamburger-icon");
 
-		if (menuToggle && mobileMenu) {
+		if (menuToggle && mobileMenu && hamburgerIcon) {
 			menuToggle.addEventListener("click", () => {
-				mobileMenu.classList.toggle("hidden");
+				// Animar el icono de hamburguesa
+				hamburgerIcon.classList.toggle("active");
+
+				// Animar la apertura/cierre del menú
+				mobileMenu.classList.toggle("expanded");
 			});
 		}
 	});
