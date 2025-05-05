@@ -41,13 +41,11 @@ import Layout from "../layouts/Layout.astro";
       <section class="blog-section" id="introduction">
         <div class="section-image">
           <img
-            src="/images/oaxaca-community.jpg"
-            alt="Community in Oaxaca discussing social issues"
+            src="/images/sin-estadisticas-min.png"
+            alt="Addictions in Oaxaca"
             class="section-img"
           />
-          <p class="image-caption">
-            Community dialogue about addiction issues in Oaxaca
-          </p>
+          <p class="image-caption">Source: Meganoticias</p>
         </div>
 
         <p>
@@ -220,17 +218,6 @@ import Layout from "../layouts/Layout.astro";
 
       <section class="blog-section" id="results">
         <h2>Results</h2>
-
-        <div class="section-image">
-          <img
-            src="/images/addiction-statistics.jpg"
-            alt="Graph showing addiction statistics in Oaxaca"
-            class="section-img"
-          />
-          <p class="image-caption">
-            Statistical overview of substance use patterns in Oaxaca (2023-2024)
-          </p>
-        </div>
 
         <p>
           Our research and community engagement efforts have yielded important
@@ -411,13 +398,12 @@ import Layout from "../layouts/Layout.astro";
 
         <div class="section-image">
           <img
-            src="/images/community-prevention.jpg"
+            src="/images/cecosama-min.jpg"
             alt="Community prevention program in action"
             class="section-img"
           />
           <p class="image-caption">
-            Youth participating in a community prevention program in rural
-            Oaxaca
+            Prevention activities at the UABJO Faculty of Medicine. Source: CECOSAMA Viguera
           </p>
         </div>
 
@@ -607,7 +593,8 @@ import Layout from "../layouts/Layout.astro";
     padding: 2rem 1rem;
   }
 
-  .blog-content { /* O déjalo sin max-width para que ocupe el espacio disponible */
+  .blog-content {
+    /* O déjalo sin max-width para que ocupe el espacio disponible */
     width: 100%; /* Asegura que use el espacio asignado por flexbox */
   }
 
@@ -712,7 +699,13 @@ import Layout from "../layouts/Layout.astro";
 
   .section-image {
     margin: 2rem 0;
-    text-align: center;
+  }
+  .section-image img {
+    display: block;
+    margin: 0 auto;
+    width: 800px; /* Ancho fijo */
+    height: 500px; /* Alto fijo */
+    object-fit: cover; /* Recorta la imagen para que llene el área sin deformarse */
   }
 
   .section-img {
