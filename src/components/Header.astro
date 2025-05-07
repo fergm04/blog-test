@@ -22,7 +22,7 @@ import { SITE_TITLE } from "../consts";
 				</h2>
 			</div>
 
-			<!-- Menú para móvil (hamburguesa) -->
+			<!-- Menú para celular (hamburguesa) -->
 			<div class="md:hidden pr-4">
 				<button
 					id="menu-toggle"
@@ -43,7 +43,7 @@ import { SITE_TITLE } from "../consts";
 				</button>
 			</div>
 
-			<!-- Enlaces principales - visibles en desktop -->
+			<!-- Enlaces principales - visibles en computadora -->
 			<div class="hidden md:flex items-center space-x-4">
 				<div class="internal-links flex space-x-1">
 					<HeaderLink href="/">Home</HeaderLink>
@@ -68,8 +68,7 @@ import { SITE_TITLE } from "../consts";
 				</div>
 			</div>
 		</nav>
-
-		<!-- Menú móvil expandible con animación -->
+		
 		<div
 			id="mobile-menu"
 			class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
@@ -114,10 +113,9 @@ import { SITE_TITLE } from "../consts";
 <style>
 	/* Agregar padding-top al contenido principal para evitar superposición */
 	:global(main) {
-		padding-top: 4rem; /* Ajusta este valor según sea necesario */
+		padding-top: 4rem;
 	}
 
-	/* Si tu estructura usa otra clase para el contenido principal, ajústala aquí */
 	:global(.content-container) {
 		padding-top: 4rem;
 	}
